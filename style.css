@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #8b4513;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.form-section, .lista-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input, textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+button {
+    background-color: #d2691e;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: #a0522d;
+}
+
+.receita-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
