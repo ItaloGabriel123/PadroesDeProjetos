@@ -12,12 +12,10 @@ function salvarReceita() {
     }
 
     if (id) {
-        // Editar
         receitas = receitas.map(r => 
             r.id == id ? { id: Number(id), titulo, ingredientes, modoPreparo } : r
         );
     } else {
-        // Adicionar
         const novaReceita = {
             id: Date.now(),
             titulo,
@@ -28,7 +26,6 @@ function salvarReceita() {
     }
 
     localStorage.setItem("receitas", JSON.stringify(receitas));
-
     limparFormulario();
     listarReceitas();
 }
@@ -38,6 +35,33 @@ function listarReceitas() {
     lista.innerHTML = "";
 
     receitas.forEach(receita => {
+        const div = document.createElement("div");
+        div.className = "receita-card";
+
+        div.innerHTML = `
+            <h3>${receita.titulo}</h3>
+            <p><strong>Ingredientes:</strong><br>${receita.ingredientes}</p>
+            <p><strong>Modo de Preparo:</strong><br>${receita.modoPreparo}</p>
+            <button onclick="editarReceita(${receita.id})">Editar</button>
+            <button onclick="removerReceita(${receita.id})">Remover</button>
+        `;
+
+        lista.appendChild(div);
+    });
+}
+
+function buscarReceitas() {
+    const termo = document.getElementById("buscar").value.toLowerCase();
+    const lista = document.getElementById("lista-receitas");
+    lista.innerHTML = "";
+
+    const filtradas = receitas.filter(receita =>
+        receita.titulo.toLowerCase().includes(termo) ||
+        receita.ingredientes.toLowerCase().includes(termo) ||
+        receita.modoPreparo.toLowerCase().includes(termo)
+    );
+
+    filtradas.forEach(receita => {
         const div = document.createElement("div");
         div.className = "receita-card";
 
