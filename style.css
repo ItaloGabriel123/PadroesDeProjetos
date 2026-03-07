@@ -1,7 +1,11 @@
+/* ======================= */
+/* ESTILO PRINCIPAL SITE */
+/* ======================= */
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #F5F5F5;
-    background-image: url("https://img.freepik.com/fotos-gratis/vista-de-cima-em-close-up-tacas-de-especiarias-frutas-citricas-e-alho_140725-78732.jpg");
+  background-image: url("https://img.freepik.com/fotos-gratis/vista-de-cima-em-close-up-tacas-de-especiarias-frutas-citricas-e-alho_140725-78732.jpg");
+    background-color: #232323;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -9,8 +13,66 @@ body {
     padding: 0;
 }
 
-.header-container {
-    background-color: rgba(0, 0, 0, 0.7);
+/* HERO */
+.hero{
+  height: 450px;
+  background-image: url("https://img.freepik.com/fotos-premium/fundo-de-cozinha-de-pedra-preta-vista-de-cima-especiarias-e-legumes_835895-2287.jpg");
+  background-size: cover;
+  background-position: center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  position:relative;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.35);
+}
+
+.hero-content{
+  position:relative;
+  z-index:1;
+}
+
+.hero h1{
+  font-size:48px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  font-size:20px;
+}
+
+
+/* BOAS VINDAS */
+.boas-vindas{
+  background-image: url("https://img.freepik.com/fotos-premium/fundo-de-cozinha-de-pedra-preta-vista-de-cima-especiarias-e-legumes_835895-2287.jpg");
+  padding:80px 20px;
+  text-align:center;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+}
+
+.boas-vindas h2{
+  font-size:36px;
+  color:#f6f5f5;
+  margin-bottom:20px;
+}
+
+.boas-vindas p{
+  font-size:18px;
+  color:#f6f5f5;
+}
+header.header-container {
+    background-color: rgba(0,0,0,0.7);
     color: #E6A800;
     padding: 20px 50px;
     display: flex;
@@ -18,31 +80,69 @@ body {
     align-items: center;
 }
 
-.header-container h1 {
+header.header-container h1 {
     margin: 0;
     font-size: 28px;
 }
 
-.header-container input {
+header.header-container input {
     padding: 8px 20px;
     border-radius: 5px;
     border: none;
     width: 220px;
 }
 
-main {
-    width: 80%;
+header.header-container button {
+    background-color: #2E7D32;
+    color: #FCFAFA;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+header.header-container button:hover {
+    background-color: #1B5E20;
+}
+
+/* ======================= */
+/* CONTAINERS */
+.container {
+    width: 85%;
     margin: 20px auto;
-}
-
-.form-section, .lista-section {
-    background: rgba(0, 0, 0, 0.75);
-    padding: 20px;
+    padding: 15px;
+    background: rgba(0,0,0,0.65);
     border-radius: 8px;
-    margin-bottom: 20px;
 }
 
-input, textarea {
+/* ======================= */
+/* CATEGORIAS */
+.categorias {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.categoria-card {
+    background: rgba(0,0,0,0.75);
+    color: #E6A800;
+    padding: 15px;
+    border-radius: 8px;
+    flex: 1 1 150px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.categoria-card:hover {
+    transform: scale(1.05);
+}
+
+/* ======================= */
+/* FORMULÁRIO */
+.form-section input, 
+.form-section textarea {
     width: 100%;
     margin-bottom: 10px;
     padding: 8px;
@@ -50,42 +150,103 @@ input, textarea {
     border: none;
 }
 
-button {
-    background-color: #2E7D32;
-    color: #FCFAFA;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-right: 5px;
-}
-
-button:hover {
-    background-color: #1B5E20;
+/* ======================= */
+/* CARDS DE RECEITAS */
+.cards-receitas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
 }
 
 .receita-card {
-    border: 1px solid #fcfafa;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
-    background: rgba(0,0,0,0.65);
+    flex: 1 1 300px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.75);
+    padding: 15px;
+    color: #fff;
+    position: relative;
 }
 
 .receita-card h3 {
     color: #E6A800;
-    font-weight: bold;
-    margin: 0 0 8px 0;
+    margin-top: 0;
 }
 
-.receita-card p:nth-of-type(1) {
+.receita-card p {
     color: #f6cc7a;
 }
 
-.receita-card p:nth-of-type(2) {
-    color: #FFA726;
+.receita-card span {
+    color: #4CAF50;
+    font-weight: bold;
 }
 
-#form-title, .lista-section h2 {
+.receita-card button {
+    margin-top: 10px;
+    background-color: #2E7D32;
+    color: #FCFAFA;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.receita-card button:hover {
+    background-color: #1B5E20;
+}
+
+/* ======================= */
+/* SEÇÕES ESPECIAIS */
+.nutricionista-section h2,
+.humor-section h2 {
     color: #E6A800;
+}
+
+/* ======================= */
+/* CSS DA TELA DE LOGIN */
+/* ======================= */
+/* Background específico da tela de login */
+body.login-page {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("https://img.freepik.com/vetores-premium/padrao-com-icones-e-elementos-de-alimentos-adesivos-de-livros-de-culinaria-fundo-de-menu-caseiro-bonito-para-cozinhar_1003207-130.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Formulário centralizado */
+.login-container {
+    width: 350px;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: #E6A800;
+    text-align: center;
+}
+
+.login-container input,
+.login-container select,
+.login-container button {
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.login-container button {
+    background-color: #2E7D32;
+    color: #FCFAFA;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #1B5E20;
 }

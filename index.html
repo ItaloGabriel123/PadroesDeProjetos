@@ -1,38 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Sabor Coletivo</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Sabor Coletivo</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="header-container">
+    <h1>🍳 Sabor Coletivo</h1>
+    <input type="text" id="buscar" placeholder="🔍 Buscar receitas..." oninput="buscarReceitas()">
+    <span class="usuario-logado"></span>
+    <button onclick="logout()">Sair</button>
+  </header>
 
-<header class="header-container">
-    <h1>🍳 Nosso site de receitas</h1>
-    <input 
-        type="text" 
-        id="buscar" 
-        placeholder="🔍 Buscar receitas..." 
-        oninput="buscarReceitas()"
-    >
-</header>
+  <main>
 
-<main>
-    <section class="form-section">
-        <h2 id="form-title">Adicionar Receita</h2>
-        <input type="hidden" id="receita-id">
-        <input type="text" id="titulo" placeholder="Título da receita">
-        <textarea id="ingredientes" placeholder="Ingredientes"></textarea>
-        <textarea id="modoPreparo" placeholder="Modo de preparo"></textarea>
-        <button onclick="salvarReceita()">Salvar Receita</button>
+<!-- HERO COM IMAGEM -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Descubra Receitas Incríveis</h1>
+    <p>Explore nossa coleção de receitas deliciosas para todas as ocasiões</p>
+  </div>
+</section>
+
+<!-- SEÇÃO DE BOAS VINDAS -->
+<section class="boas-vindas">
+  <div class="container">
+    <h2>Bem-vindo ao Receitas Deliciosas</h2>
+    <p>
+      Sua comunidade colaborativa de receitas! Aqui você não só descobre receitas
+      incríveis, mas também pode compartilhar suas próprias criações culinárias
+      com milhares de pessoas.
+    </p>
+  </div>
+</section>
+
+    <!-- CONTAINER DE CATEGORIAS / DESTAQUES -->
+    <section class="container">
+      <h2>🍲 Categorias</h2>
+      <div class="categorias">
+        <div class="categoria-card">🥗 Saudável</div>
+        <div class="categoria-card">🍝 Massas</div>
+        <div class="categoria-card">🍰 Sobremesas</div>
+        <div class="categoria-card">🍛 Pratos Principais</div>
+        <div class="categoria-card">🍫 Por Humor</div>
+      </div>
     </section>
 
-    <section class="lista-section">
-        <h2>📋 Minhas Receitas</h2>
-        <div id="lista-receitas"></div>
+    <!-- CONTAINER DE ADICIONAR RECEITA -->
+    <section class="container form-section">
+      <h2 id="form-title">Adicionar Receita</h2>
+      <input type="hidden" id="receita-id">
+      <input type="text" id="titulo" placeholder="Título da receita">
+      <textarea id="ingredientes" placeholder="Ingredientes"></textarea>
+      <textarea id="modoPreparo" placeholder="Modo de preparo"></textarea>
+      <button onclick="salvarReceita()">Salvar Receita</button>
     </section>
-</main>
 
-<script src="script.js"></script>
+    <!-- CONTAINER DE MINHAS RECEITAS -->
+    <section class="container lista-section">
+      <h2>📋 Minhas Receitas</h2>
+      <div id="lista-receitas" class="cards-receitas"></div>
+    </section>
+
+    <!-- CONTAINER DE RECEITAS SAUDÁVEIS -->
+    <section class="container nutricionista-section">
+      <h2>🥗 Receitas Saudáveis</h2>
+      <div id="receitas-saudaveis" class="cards-receitas"></div>
+    </section>
+
+    <!-- CONTAINER DE RECEITAS POR HUMOR -->
+    <section class="container humor-section">
+      <h2>😂 Receitas Por Humor</h2>
+      <div id="receitas-humor" class="cards-receitas"></div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
