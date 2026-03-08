@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receita - Delícias da Cozinha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/>
+                        <line x1="6" y1="17" x2="18" y2="17"/>
+                    </svg>
+                    <span class="logo-text">Delícias da Cozinha</span>
+                </a>
+                <nav class="nav desktop-nav">
+                    <a href="index.html" class="nav-link">Início</a>
+                    <a href="receitas.html" class="nav-link">Receitas</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <nav class="mobile-nav" id="mobileNav">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="receitas.html" class="nav-link">Receitas</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Back Button -->
+    <div class="container">
+        <div class="back-button-container">
+            <a href="receitas.html" class="back-button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <line x1="19" y1="12" x2="5" y2="12"/>
+                    <polyline points="12 19 5 12 12 5"/>
+                </svg>
+                Voltar
+            </a>
+        </div>
+    </div>
+
+    <!-- Recipe Header with Image -->
+    <div class="recipe-header" id="recipeHeader">
+        <!-- Conteúdo será inserido via JavaScript -->
+    </div>
+
+    <!-- Recipe Info -->
+    <div class="container">
+        <div class="recipe-stats" id="recipeStats">
+            <!-- Stats serão inseridos via JavaScript -->
+        </div>
+
+        <div class="recipe-content">
+            <!-- Ingredients -->
+            <div class="recipe-section">
+                <div class="recipe-section-header">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <line x1="8" y1="6" x2="21" y2="6"/>
+                        <line x1="8" y1="12" x2="21" y2="12"/>
+                        <line x1="8" y1="18" x2="21" y2="18"/>
+                        <line x1="3" y1="6" x2="3.01" y2="6"/>
+                        <line x1="3" y1="12" x2="3.01" y2="12"/>
+                        <line x1="3" y1="18" x2="3.01" y2="18"/>
+                    </svg>
+                    <h2>Ingredientes</h2>
+                </div>
+                <ul class="ingredients-list" id="ingredientsList">
+                    <!-- Ingredientes serão inseridos via JavaScript -->
+                </ul>
+            </div>
+
+            <!-- Instructions -->
+            <div class="recipe-section">
+                <div class="recipe-section-header">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/>
+                        <line x1="6" y1="17" x2="18" y2="17"/>
+                    </svg>
+                    <h2>Modo de Preparo</h2>
+                </div>
+                <ol class="instructions-list" id="instructionsList">
+                    <!-- Instruções serão inseridas via JavaScript -->
+                </ol>
+            </div>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="tips-section">
+            <h3>💡 Dica do Chef</h3>
+            <p>
+                Para melhores resultados, leia toda a receita antes de começar e prepare todos os ingredientes (mise en place). 
+                Isso tornará o processo de cozimento muito mais suave e agradável!
+            </p>
+        </div>
+
+        <!-- Related Recipes -->
+        <div class="related-recipes">
+            <h2 class="section-title">Você também pode gostar</h2>
+            <div class="recipes-grid" id="relatedRecipes">
+                <!-- Receitas relacionadas serão inseridas via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 Delícias da Cozinha. Todas as receitas com amor.</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script src="receita-detalhe.js"></script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+// Base de dados de receitas
+const recipes = [
+  {
+    id: '1',
+    title: 'Pasta Carbonara',
+    description: 'Autêntica pasta carbonara italiana com molho cremoso de ovos e queijo',
+    category: 'Massa',
+    difficulty: 'Médio',
+    prepTime: 30,
+    servings: 4,
+    image: 'https://images.unsplash.com/photo-1627207644206-a2040d60ecad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYXN0YSUyMGNhcmJvbmFyYSUyMGRpc2h8ZW58MXx8fHwxNzcyODg1NTE3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    ingredients: [
+      '400g de espaguete',
+      '200g de bacon ou guanciale',
+      '4 ovos',
+      '100g de queijo parmesão ralado',
+      '50g de queijo pecorino',
+      'Pimenta preta moída na hora',
+      'Sal a gosto'
+    ],
+    instructions: [
+      'Cozinhe o espaguete em água fervente com sal até ficar al dente.',
+      'Enquanto isso, corte o bacon em cubos pequenos e frite em uma frigideira até ficar crocante.',
+      'Em uma tigela, bata os ovos com os queijos ralados e pimenta preta.',
+      'Escorra a massa reservando um pouco da água do cozimento.',
+      'Misture a massa quente com o bacon, retire do fogo e adicione a mistura de ovos.',
+      'Mexa rapidamente, adicionando um pouco da água da massa se necessário para criar um molho cremoso.',
+      'Sirva imediatamente com mais queijo e pimenta por cima.'
+    ],
+    featured: true
+  },
+  {
+    id: '2',
+    title: 'Bolo de Chocolate',
+    description: 'Bolo de chocolate fofinho e úmido com cobertura cremosa',
+    category: 'Sobremesa',
+    difficulty: 'Fácil',
+    prepTime: 60,
+    servings: 8,
+    image: 'https://images.unsplash.com/photo-1607257882338-70f7dd2ae344?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaG9jb2xhdGUlMjBjYWtlJTIwZGVzc2VydHxlbnwxfHx8fDE3NzI4ODExNTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    ingredients: [
+      '2 xícaras de farinha de trigo',
+      '2 xícaras de açúcar',
+      '3/4 xícara de cacau em pó',
+      '2 colheres de chá de fermento em pó',
+      '1 1/2 colheres de chá de bicarbonato',
+      '1 colher de chá de sal',
+      '2 ovos',
+      '1 xícara de leite',
+      '1/2 xícara de óleo',
+      '2 colheres de chá de extrato de baunilha',
+      '1 xícara de água fervente'
+    ],
+    instructions: [
+      'Pré-aqueça o forno a 180°C. Unte e enfarinhe duas formas redondas.',
+      'Misture todos os ingredientes secos em uma tigela grande.',
+      'Adicione ovos, leite, óleo e baunilha. Bata por 2 minutos.',
+      'Adicione a água fervente por último (a massa ficará líquida).',
+      'Despeje nas formas e asse por 30-35 minutos.',
+      'Deixe esfriar completamente antes de desenformar.',
+      'Cubra com sua cobertura favorita de chocolate.'
+    ],
+    featured: true
+  },
+  {
+    id: '3',
+    title: 'Salada Caesar',
+    description: 'Salada fresca com molho caesar caseiro e croutons crocantes',
+    category: 'Salada',
+    difficulty: 'Fácil',
+    prepTime: 20,
+    servings: 4,
+    image: 'https://images.unsplash.com/photo-1620019989479-d52fcedd99fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMHNhbGFkJTIwYm93bHxlbnwxfHx8fDE3NzI5MDU0NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    ingredients: [
+      '2 maços de alface romana',
+      '1/2 xícara de queijo parmesão ralado',
+      '1 xícara de croutons',
+      '2 filés de peito de frango (opcional)',
+      'Para o molho:',
+      '3 colheres de maionese',
+      '2 colheres de suco de limão',
+      '2 dentes de alho picados',
+      '1 colher de mostarda Dijon',
+      '2 colheres de queijo parmesão',
+      'Sal e pimenta a gosto'
+    ],
+    instructions: [
+      'Lave e seque bem a alface, depois rasgue em pedaços.',
+      'Se usar frango, tempere e grelhe até cozinhar completamente, depois corte em tiras.',
+      'Para o molho, misture todos os ingredientes em uma tigela pequena.',
+      'Em uma tigela grande, coloque a alface.',
+      'Adicione o molho e misture bem para cobrir todas as folhas.',
+      'Adicione o queijo parmesão e os croutons.',
+      'Se desejar, coloque o frango por cima e sirva imediatamente.'
+    ],
+    featured: true
+  },
+  {
+    id: '4',
+    title: 'Salmão Grelhado',
+    description: 'Salmão perfeitamente grelhado com legumes e molho de limão',
+    category: 'Peixe',
+    difficulty: 'Médio',
+    prepTime: 25,
+    servings: 4,
+    image: 'https://images.unsplash.com/photo-1580959375944-abd7e991f971?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmlsbGVkJTIwc2FsbW9uJTIwZGlubmVyfGVufDF8fHx8MTc3MjkxNjc2NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    ingredients: [
+      '4 filés de salmão (150g cada)',
+      '2 colheres de azeite',
+      'Suco de 1 limão',
+      '2 dentes de alho picados',
+      '1 colher de chá de endro fresco',
+      'Sal e pimenta a gosto',
+      'Legumes para acompanhar'
+    ],
+    instructions: [
+      'Tempere os filés de salmão com sal, pimenta, alho e metade do suco de limão.',
+      'Deixe marinar por 15 minutos.',
+      'Aqueça uma frigideira ou grelha em fogo médio-alto.',
+      'Adicione o azeite e coloque o salmão com a pele para baixo.',
+      'Cozinhe por 4-5 minutos de cada lado, dependendo da espessura.',
+      'Regue com o restante do limão e polvilhe o endro.',
+      'Sirva com legumes grelhados ou arroz.'
+    ]
+  },
+  {
+    id: '5',
+    title: 'Pizza Margherita',
+    description: 'Pizza clássica italiana com molho de tomate, mussarela e manjericão fresco',
+    category: 'Pizza',
+    difficulty: 'Médio',
+    prepTime: 90,
+    servings: 4,
+    image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaXp6YSUyMG1hcmdoZXJpdGF8ZW58MXx8fHwxNzcyOTUwNTkwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    ingredients: [
+      'Para a massa:',
+      '500g de farinha de trigo',
+      '300ml de água morna',
+      '10g de fermento biológico seco',
+      '1 colher de chá de açúcar',
+      '2 colheres de sopa de azeite',
+      '1 colher de chá de sal',
+      'Para a cobertura:',
+      '400g de molho de tomate',
+      '300g de mussarela de búfala',
+      'Folhas de manjericão fresco',
+      'Azeite extra virgem',
+      'Sal a gosto'
+    ],
+    instructions: [
+      'Dissolva o fermento e o açúcar na água morna. Deixe descansar por 5 minutos.',
+      'Misture a farinha e o sal. Adicione o fermento, água e azeite.',
+      'Sove por 10 minutos até ficar elástica. Deixe crescer por 1 hora.',
+      'Pré-aqueça o forno a 250°C com uma pedra para pizza, se tiver.',
+      'Divida a massa em 4 partes e abra cada uma em formato redondo.',
+      'Espalhe o molho de tomate, adicione a mussarela rasgada.',
+      'Asse por 8-10 minutos até a borda ficar dourada.',
+      'Finalize com manjericão fresco e um fio de azeite.'
+    ]
+  },
+  {
+    id: '6',
+    title: 'Hambúrguer Artesanal',
+    description: 'Hambúrguer suculento com queijo, bacon e batatas fritas',
+    category: 'Lanche',
+    difficulty: 'Fácil',
+    prepTime: 30,
+    servings: 4,
+    image: 'https://images.unsplash.com/photo-1641493914496-bccad35e6a16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWVmJTIwYnVyZ2VyJTIwZnJpZXN8ZW58MXx8fHwxNzcyODkzMDM0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    ingredients: [
+      '800g de carne moída (80% magra)',
+      '4 pães de hambúrguer',
+      '4 fatias de queijo cheddar',
+      '8 fatias de bacon',
+      'Alface, tomate e cebola',
+      'Maionese, ketchup e mostarda',
+      'Sal e pimenta a gosto',
+      'Batatas para fritar'
+    ],
+    instructions: [
+      'Divida a carne em 4 porções iguais e modele os hambúrgueres.',
+      'Tempere com sal e pimenta dos dois lados.',
+      'Frite o bacon até ficar crocante.',
+      'Grelhe os hambúrgueres por 4-5 minutos de cada lado para ponto médio.',
+      'Adicione o queijo no último minuto para derreter.',
+      'Torre levemente os pães.',
+      'Monte: pão, molhos, alface, hambúrguer, queijo, bacon, tomate, cebola.',
+      'Sirva com batatas fritas crocantes.'
+    ]
+  },
+  {
+    id: '7',
+    title: 'Curry de Frango',
+    description: 'Curry indiano aromático com frango, legumes e arroz basmati',
+    category: 'Prato Principal',
+    difficulty: 'Médio',
+    prepTime: 45,
+    servings: 6,
+    image: 'https://images.unsplash.com/photo-1707322571124-9d3a47cce941?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlja2VuJTIwY3VycnklMjByaWNlfGVufDF8fHx8MTc3Mjg3NjMzNHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    ingredients: [
+      '1kg de peito de frango em cubos',
+      '2 colheres de pasta de curry',
+      '400ml de leite de coco',
+      '2 cebolas picadas',
+      '4 dentes de alho',
+      '1 pedaço de gengibre',
+      '2 tomates picados',
+      'Coentro fresco',
+      'Arroz basmati para acompanhar',
+      'Sal e azeite'
+    ],
+    instructions: [
+      'Refogue a cebola, alho e gengibre no azeite até dourar.',
+      'Adicione a pasta de curry e mexa por 1 minuto.',
+      'Acrescente o frango e cozinhe até começar a dourar.',
+      'Adicione os tomates e cozinhe por 5 minutos.',
+      'Despeje o leite de coco e deixe cozinhar por 20 minutos.',
+      'Ajuste o tempero com sal.',
+      'Cozinhe o arroz basmati separadamente.',
+      'Sirva o curry sobre o arroz, decorado com coentro fresco.'
+    ]
+  },
+  {
+    id: '8',
+    title: 'Sushi Caseiro',
+    description: 'Rolinhos de sushi frescos com salmão, atum e vegetais',
+    category: 'Japonês',
+    difficulty: 'Difícil',
+    prepTime: 60,
+    servings: 4,
+    image: 'https://images.unsplash.com/photo-1707556294605-fd32496554e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXNoaSUyMHJvbGxzJTIwcGxhdHRlcnxlbnwxfHx8fDE3NzI4ODY2NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    ingredients: [
+      '2 xícaras de arroz para sushi',
+      '1/4 xícara de vinagre de arroz',
+      '2 colheres de açúcar',
+      '1 colher de chá de sal',
+      '10 folhas de nori',
+      '200g de salmão fresco',
+      '200g de atum fresco',
+      'Pepino japonês',
+      'Abacate',
+      'Cream cheese',
+      'Shoyu, wasabi e gengibre para servir'
+    ],
+    instructions: [
+      'Cozinhe o arroz e deixe esfriar. Misture com vinagre, açúcar e sal.',
+      'Corte os peixes e vegetais em tiras finas.',
+      'Coloque a folha de nori sobre uma esteira de bambu.',
+      'Espalhe uma camada fina de arroz sobre o nori.',
+      'Coloque os ingredientes em uma linha no centro.',
+      'Enrole firmemente usando a esteira.',
+      'Corte cada rolo em 8 pedaços com uma faca afiada.',
+      'Sirva com shoyu, wasabi e gengibre em conserva.'
+    ]
+  },
+  {
+    id: '9',
+    title: 'Sopa de Legumes',
+    description: 'Sopa nutritiva e reconfortante com legumes frescos da estação',
+    category: 'Sopa',
+    difficulty: 'Fácil',
+    prepTime: 40,
+    servings: 6,
+    image: 'https://images.unsplash.com/photo-1701109876066-7fc0c08da447?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2ZWdldGFibGUlMjBzb3VwJTIwYm93bHxlbnwxfHx8fDE3NzI4OTI2NTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    ingredients: [
+      '2 cenouras picadas',
+      '2 batatas picadas',
+      '1 abobrinha picada',
+      '200g de vagem',
+      '1 cebola picada',
+      '2 dentes de alho',
+      '1 lata de tomate pelado',
+      '1,5 litros de caldo de legumes',
+      'Azeite, sal e pimenta',
+      'Ervas frescas (tomilho, alecrim)'
+    ],
+    instructions: [
+      'Refogue a cebola e o alho no azeite até ficarem transparentes.',
+      'Adicione as cenouras e batatas, refogue por 5 minutos.',
+      'Acrescente os tomates e mexa bem.',
+      'Despeje o caldo de legumes e deixe ferver.',
+      'Adicione a abobrinha e a vagem.',
+      'Cozinhe em fogo médio por 20-25 minutos.',
+      'Tempere com sal, pimenta e ervas.',
+      'Sirva quente com pão torrado.'
+    ]
+  },
+  {
+    id: '10',
+    title: 'Tiramisu',
+    description: 'Sobremesa italiana clássica com café, mascarpone e cacau',
+    category: 'Sobremesa',
+    difficulty: 'Médio',
+    prepTime: 30,
+    servings: 8,
+    image: 'https://images.unsplash.com/photo-1714385905983-6f8e06fffae1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aXJhbWlzdSUyMGRlc3NlcnR8ZW58MXx8fHwxNzcyOTUzMDgxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    ingredients: [
+      '500g de queijo mascarpone',
+      '6 ovos (gemas e claras separadas)',
+      '100g de açúcar',
+      '300ml de café expresso forte',
+      '3 colheres de licor de café (opcional)',
+      '400g de biscoitos champanhe',
+      'Cacau em pó para polvilhar',
+      '1 pitada de sal'
+    ],
+    instructions: [
+      'Bata as gemas com metade do açúcar até ficar claro e espesso.',
+      'Adicione o mascarpone às gemas e misture delicadamente.',
+      'Bata as claras com uma pitada de sal até formar picos.',
+      'Adicione o restante do açúcar às claras e bata até ficar firme.',
+      'Incorpore as claras ao creme de mascarpone com movimentos suaves.',
+      'Misture o café com o licor em um prato raso.',
+      'Molhe rapidamente os biscoitos no café e faça uma camada em uma travessa.',
+      'Cubra com metade do creme, repita as camadas.',
+      'Refrigere por pelo menos 4 horas. Polvilhe cacau antes de servir.'
+    ]
+  },
+  {
+    id: '11',
+    title: 'Panquecas Americanas',
+    description: 'Panquecas fofinhas perfeitas para o café da manhã com xarope de maple',
+    category: 'Café da Manhã',
+    difficulty: 'Fácil',
+    prepTime: 20,
+    servings: 4,
+    image: 'https://images.unsplash.com/photo-1610015644714-60076be69b30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYW5jYWtlcyUyMGJyZWFrZmFzdHxlbnwxfHx8fDE3NzI5ODAzNTV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    ingredients: [
+      '2 xícaras de farinha de trigo',
+      '2 colheres de sopa de açúcar',
+      '2 colheres de chá de fermento em pó',
+      '1/2 colher de chá de sal',
+      '2 ovos',
+      '1 1/2 xícara de leite',
+      '1/4 xícara de manteiga derretida',
+      '1 colher de chá de extrato de baunilha',
+      'Manteiga para a frigideira',
+      'Xarope de maple e frutas para servir'
+    ],
+    instructions: [
+      'Misture todos os ingredientes secos em uma tigela grande.',
+      'Em outra tigela, bata os ovos com o leite, manteiga e baunilha.',
+      'Adicione os ingredientes úmidos aos secos e misture até incorporar (não bata demais).',
+      'Aqueça uma frigideira antiaderente em fogo médio.',
+      'Unte levemente com manteiga.',
+      'Despeje porções de massa (cerca de 1/4 xícara para cada panqueca).',
+      'Cozinhe até aparecerem bolhas na superfície, depois vire.',
+      'Cozinhe por mais 1-2 minutos até dourar.',
+      'Sirva quente com xarope de maple, frutas frescas e manteiga.'
+    ]
+  },
+  {
+    id: '12',
+    title: 'Lasanha à Bolonhesa',
+    description: 'Lasanha tradicional italiana com molho bolonhesa e bechamel',
+    category: 'Massa',
+    difficulty: 'Difícil',
+    prepTime: 120,
+    servings: 8,
+    image: 'https://images.unsplash.com/photo-1646077978608-65ed63765302?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYXNhZ25hJTIwaXRhbGlhbnxlbnwxfHx8fDE3NzI5MTA1NTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+    ingredients: [
+      '500g de massa para lasanha',
+      'Para o molho bolonhesa:',
+      '500g de carne moída',
+      '200g de bacon picado',
+      '1 cebola picada',
+      '2 cenouras raladas',
+      '2 latas de tomate pelado',
+      'Vinho tinto',
+      'Para o bechamel:',
+      '4 colheres de manteiga',
+      '4 colheres de farinha',
+      '1 litro de leite',
+      'Noz-moscada',
+      '200g de queijo parmesão ralado',
+      '200g de mussarela'
+    ],
+    instructions: [
+      'Faça o molho bolonhesa: refogue o bacon, adicione a cebola e cenoura.',
+      'Acrescente a carne e deixe dourar bem.',
+      'Adicione o vinho e deixe evaporar, depois os tomates.',
+      'Cozinhe por 1 hora em fogo baixo.',
+      'Para o bechamel: derreta a manteiga, adicione a farinha e mexa.',
+      'Adicione o leite aos poucos, mexendo até engrossar.',
+      'Tempere com sal, pimenta e noz-moscada.',
+      'Monte a lasanha: camadas de massa, bolonhesa, bechamel e queijo.',
+      'Repita as camadas, finalizando com bechamel e bastante queijo.',
+      'Asse a 180°C por 40 minutos até dourar.'
+    ]
+  }
+];
+
+const categories = [
+  'Todas',
+  'Massa',
+  'Sobremesa',
+  'Salada',
+  'Peixe',
+  'Pizza',
+  'Lanche',
+  'Prato Principal',
+  'Japonês',
+  'Sopa',
+  'Café da Manhã'
+];

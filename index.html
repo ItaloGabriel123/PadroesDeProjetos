@@ -1,82 +1,136 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Sabor Coletivo</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delícias da Cozinha - Site de Receitas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header-container">
-    <h1>🍳 Sabor Coletivo</h1>
-    <input type="text" id="buscar" placeholder="🔍 Buscar receitas..." oninput="buscarReceitas()">
-    <span class="usuario-logado"></span>
-    <button onclick="logout()">Sair</button>
-  </header>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/>
+                        <line x1="6" y1="17" x2="18" y2="17"/>
+                    </svg>
+                    <span class="logo-text">Delícias da Cozinha</span>
+                </a>
+                <nav class="nav desktop-nav">
+                    <a href="index.html" class="nav-link active">Início</a>
+                    <a href="receitas.html" class="nav-link">Receitas</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <nav class="mobile-nav" id="mobileNav">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="receitas.html" class="nav-link">Receitas</a>
+            </nav>
+        </div>
+    </header>
 
-  <main>
-
-<!-- HERO COM IMAGEM -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Descubra Receitas Incríveis</h1>
-    <p>Explore nossa coleção de receitas deliciosas para todas as ocasiões</p>
-  </div>
-</section>
-
-<!-- SEÇÃO DE BOAS VINDAS -->
-<section class="boas-vindas">
-  <div class="container">
-    <h2>Bem-vindo ao Receitas Deliciosas</h2>
-    <p>
-      Sua comunidade colaborativa de receitas! Aqui você não só descobre receitas
-      incríveis, mas também pode compartilhar suas próprias criações culinárias
-      com milhares de pessoas.
-    </p>
-  </div>
-</section>
-
-    <!-- CONTAINER DE CATEGORIAS / DESTAQUES -->
-    <section class="container">
-      <h2>🍲 Categorias</h2>
-      <div class="categorias">
-        <div class="categoria-card">🥗 Saudável</div>
-        <div class="categoria-card">🍝 Massas</div>
-        <div class="categoria-card">🍰 Sobremesas</div>
-        <div class="categoria-card">🍛 Pratos Principais</div>
-        <div class="categoria-card">🍫 Por Humor</div>
-      </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Descubra Receitas Incríveis</h1>
+                <p class="hero-description">
+                    As melhores receitas do mundo, testadas e aprovadas pela nossa comunidade
+                </p>
+                <a href="receitas.html" class="btn btn-primary">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/>
+                    </svg>
+                    Explorar Receitas
+                </a>
+            </div>
+        </div>
     </section>
 
-    <!-- CONTAINER DE ADICIONAR RECEITA -->
-    <section class="container form-section">
-      <h2 id="form-title">Adicionar Receita</h2>
-      <input type="hidden" id="receita-id">
-      <input type="text" id="titulo" placeholder="Título da receita">
-      <textarea id="ingredientes" placeholder="Ingredientes"></textarea>
-      <textarea id="modoPreparo" placeholder="Modo de preparo"></textarea>
-      <button onclick="salvarReceita()">Salvar Receita</button>
+    <!-- Featured Recipes -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                    <polyline points="16 7 22 7 22 13"/>
+                </svg>
+                <h2 class="section-title">Receitas em Destaque</h2>
+            </div>
+            <div class="recipes-grid" id="featuredRecipes">
+                <!-- Receitas serão inseridas via JavaScript -->
+            </div>
+        </div>
     </section>
 
-    <!-- CONTAINER DE MINHAS RECEITAS -->
-    <section class="container lista-section">
-      <h2>📋 Minhas Receitas</h2>
-      <div id="lista-receitas" class="cards-receitas"></div>
+    <!-- Categories -->
+    <section class="section section-white">
+        <div class="container">
+            <h2 class="section-title">Explore por Categoria</h2>
+            <div class="categories-grid">
+                <a href="receitas.html?categoria=Massa" class="category-card">Massa</a>
+                <a href="receitas.html?categoria=Sobremesa" class="category-card">Sobremesa</a>
+                <a href="receitas.html?categoria=Salada" class="category-card">Salada</a>
+                <a href="receitas.html?categoria=Peixe" class="category-card">Peixe</a>
+                <a href="receitas.html?categoria=Pizza" class="category-card">Pizza</a>
+                <a href="receitas.html?categoria=Lanche" class="category-card">Lanche</a>
+            </div>
+        </div>
     </section>
 
-    <!-- CONTAINER DE RECEITAS SAUDÁVEIS -->
-    <section class="container nutricionista-section">
-      <h2>🥗 Receitas Saudáveis</h2>
-      <div id="receitas-saudaveis" class="cards-receitas"></div>
+    <!-- Popular Recipes -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <h2 class="section-title">Receitas Populares</h2>
+            </div>
+            <div class="recipes-grid" id="popularRecipes">
+                <!-- Receitas serão inseridas via JavaScript -->
+            </div>
+            <div class="section-footer">
+                <a href="receitas.html" class="btn btn-primary">Ver Todas as Receitas</a>
+            </div>
+        </div>
     </section>
 
-    <!-- CONTAINER DE RECEITAS POR HUMOR -->
-    <section class="container humor-section">
-      <h2>😂 Receitas Por Humor</h2>
-      <div id="receitas-humor" class="cards-receitas"></div>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <p class="stat-label">Receitas</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50k+</div>
+                    <p class="stat-label">Usuários</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4.8★</div>
+                    <p class="stat-label">Avaliação</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-  </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 Delícias da Cozinha. Todas as receitas com amor.</p>
+        </div>
+    </footer>
 
-  <script src="script.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

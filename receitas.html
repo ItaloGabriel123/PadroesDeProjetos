@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todas as Receitas - Delícias da Cozinha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/>
+                        <line x1="6" y1="17" x2="18" y2="17"/>
+                    </svg>
+                    <span class="logo-text">Delícias da Cozinha</span>
+                </a>
+                <nav class="nav desktop-nav">
+                    <a href="index.html" class="nav-link">Início</a>
+                    <a href="receitas.html" class="nav-link active">Receitas</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <nav class="mobile-nav" id="mobileNav">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="receitas.html" class="nav-link">Receitas</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="recipes-page">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Todas as Receitas</h1>
+                <p class="page-description">Encontre a receita perfeita para qualquer ocasião</p>
+            </div>
+
+            <!-- Search and Filter -->
+            <div class="filters-section">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Buscar receitas..."
+                        class="search-input"
+                    >
+                </div>
+
+                <div class="filter-header">
+                    <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+                    </svg>
+                    <span class="filter-label">Categorias:</span>
+                </div>
+                <div class="categories-filter" id="categoriesFilter">
+                    <!-- Categorias serão inseridas via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Results Count -->
+            <div class="results-count" id="resultsCount"></div>
+
+            <!-- Recipes Grid -->
+            <div class="recipes-grid" id="recipesGrid">
+                <!-- Receitas serão inseridas via JavaScript -->
+            </div>
+
+            <!-- No Results -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <p>Nenhuma receita encontrada. Tente outra busca ou categoria.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 Delícias da Cozinha. Todas as receitas com amor.</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script src="receitas-page.js"></script>
+</body>
+</html>
