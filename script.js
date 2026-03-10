@@ -34,7 +34,7 @@ function getDifficultyClass(difficulty) {
 // Criar HTML de um card de receita
 function createRecipeCard(recipe) {
   return `
-    <a href="receita-detalhe.html?id=${recipe.id}" class="recipe-card">
+    <a href="receitas-detalhe.html?id=${recipe.id}" class="recipe-card">
       <div class="recipe-card-image">
         <img src="${recipe.image}" alt="${recipe.title}">
         <span class="difficulty-badge ${getDifficultyClass(recipe.difficulty)}">
