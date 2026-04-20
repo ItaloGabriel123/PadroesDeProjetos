@@ -1,6 +1,3 @@
-// Funções gerais compartilhadas
-
-// Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const mobileNav = document.getElementById('mobileNav');
@@ -11,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Carregar receitas na página inicial se existir
   if (document.getElementById('featuredRecipes')) {
     loadFeaturedRecipes();
   }
@@ -21,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Função para obter classe de dificuldade
 function getDifficultyClass(difficulty) {
   const map = {
     'Fácil': 'difficulty-facil',
@@ -31,7 +26,6 @@ function getDifficultyClass(difficulty) {
   return map[difficulty] || 'difficulty-facil';
 }
 
-// Criar HTML de um card de receita
 function createRecipeCard(recipe) {
   return `
     <a href="receitas-detalhe.html?id=${recipe.id}" class="recipe-card">
@@ -68,7 +62,6 @@ function createRecipeCard(recipe) {
   `;
 }
 
-// Carregar receitas em destaque
 function loadFeaturedRecipes() {
   const container = document.getElementById('featuredRecipes');
   if (!container) return;
@@ -77,7 +70,6 @@ function loadFeaturedRecipes() {
   container.innerHTML = featured.map(createRecipeCard).join('');
 }
 
-// Carregar receitas populares
 function loadPopularRecipes() {
   const container = document.getElementById('popularRecipes');
   if (!container) return;

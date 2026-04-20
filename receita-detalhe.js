@@ -1,7 +1,4 @@
-// Lógica específica da página de detalhes da receita
-
 document.addEventListener('DOMContentLoaded', function() {
-  // Obter ID da receita da URL
   const urlParams = new URLSearchParams(window.location.search);
   const recipeId = urlParams.get('id');
   
@@ -10,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     return;
   }
   
-  // Buscar receita
   const recipe = recipes.find(r => r.id === recipeId);
   
   if (!recipe) {
@@ -18,18 +14,15 @@ document.addEventListener('DOMContentLoaded', function() {
     return;
   }
   
-  // Renderizar receita
   renderRecipeHeader(recipe);
   renderRecipeStats(recipe);
   renderIngredients(recipe);
   renderInstructions(recipe);
   renderRelatedRecipes(recipe);
   
-  // Atualizar título da página
   document.title = `${recipe.title} - Delícias da Cozinha`;
 });
 
-// Renderizar cabeçalho da receita
 function renderRecipeHeader(recipe) {
   const container = document.getElementById('recipeHeader');
   if (!container) return;
@@ -47,7 +40,6 @@ function renderRecipeHeader(recipe) {
   `;
 }
 
-// Renderizar estatísticas da receita
 function renderRecipeStats(recipe) {
   const container = document.getElementById('recipeStats');
   if (!container) return;
@@ -94,7 +86,6 @@ function renderRecipeStats(recipe) {
   `;
 }
 
-// Renderizar ingredientes
 function renderIngredients(recipe) {
   const container = document.getElementById('ingredientsList');
   if (!container) return;
@@ -104,7 +95,6 @@ function renderIngredients(recipe) {
   `).join('');
 }
 
-// Renderizar instruções
 function renderInstructions(recipe) {
   const container = document.getElementById('instructionsList');
   if (!container) return;
@@ -114,12 +104,10 @@ function renderInstructions(recipe) {
   `).join('');
 }
 
-// Renderizar receitas relacionadas
 function renderRelatedRecipes(recipe) {
   const container = document.getElementById('relatedRecipes');
   if (!container) return;
-  
-  // Buscar receitas da mesma categoria
+
   const related = recipes
     .filter(r => r.category === recipe.category && r.id !== recipe.id)
     .slice(0, 3);

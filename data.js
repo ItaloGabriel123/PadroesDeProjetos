@@ -1,4 +1,3 @@
-// Base de dados de receitas
 const recipes = [
   {
     id: '1',

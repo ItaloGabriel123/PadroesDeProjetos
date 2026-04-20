@@ -1,23 +1,17 @@
-// Lógica específica da página de receitas
-
 let currentCategory = 'Todas';
 let searchTerm = '';
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Verificar se há categoria na URL
   const urlParams = new URLSearchParams(window.location.search);
   const categoryParam = urlParams.get('categoria');
   if (categoryParam) {
     currentCategory = categoryParam;
   }
 
-  // Renderizar filtros de categoria
   renderCategoryFilters();
-  
-  // Renderizar receitas
+
   renderRecipes();
-  
-  // Event listener para busca
+
   const searchInput = document.getElementById('searchInput');
   if (searchInput) {
     searchInput.addEventListener('input', function(e) {
@@ -27,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Renderizar filtros de categoria
 function renderCategoryFilters() {
   const container = document.getElementById('categoriesFilter');
   if (!container) return;
@@ -42,11 +35,9 @@ function renderCategoryFilters() {
   `).join('');
 }
 
-// Filtrar por categoria
 function filterByCategory(category) {
   currentCategory = category;
-  
-  // Atualizar URL
+
   if (category !== 'Todas') {
     window.history.pushState({}, '', `?categoria=${category}`);
   } else {
@@ -57,15 +48,13 @@ function filterByCategory(category) {
   renderRecipes();
 }
 
-// Renderizar receitas filtradas
 function renderRecipes() {
   const recipesGrid = document.getElementById('recipesGrid');
   const resultsCount = document.getElementById('resultsCount');
   const noResults = document.getElementById('noResults');
   
   if (!recipesGrid) return;
-  
-  // Filtrar receitas
+
   let filteredRecipes = recipes.filter(recipe => {
     const matchesSearch = 
       recipe.title.toLowerCase().includes(searchTerm) ||
@@ -77,14 +66,12 @@ function renderRecipes() {
     
     return matchesSearch && matchesCategory;
   });
-  
-  // Atualizar contador
+
   if (resultsCount) {
     const count = filteredRecipes.length;
     resultsCount.textContent = `${count} ${count === 1 ? 'receita encontrada' : 'receitas encontradas'}`;
   }
-  
-  // Renderizar receitas ou mensagem de "sem resultados"
+
   if (filteredRecipes.length > 0) {
     recipesGrid.innerHTML = filteredRecipes.map(createRecipeCard).join('');
     recipesGrid.style.display = 'grid';
